@@ -1,0 +1,30 @@
+{
+  "name": "effects-sdk",
+  "version": "2.3.8",
+  "description": "Add real-time webcam effects (virtual background, background blur, touch up my appearance, auto-framing, color correction. lower-thirds) for video calls.",
+  "main": "tsvb.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EffectsSDK/npm-package.git"
+  },
+  "keywords": [
+    "background",
+    "blur",
+    "replace",
+    "background",
+    "beautification",
+    "video",
+    "calls",
+    "video",
+    "effects"
+  ],
+  "author": "Effects SDK",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EffectsSDK/npm-package/issues"
+  },
+  "homepage": "https://github.com/EffectsSDK/npm-package#readme"
+}
