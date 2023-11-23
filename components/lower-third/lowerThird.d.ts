@@ -1,18 +1,17 @@
 import { Graphics, Text, Ticker, TickerCallback } from "pixi.js";
 import { Component } from "../component";
-import { Position } from "controllers/lib";
 export interface LtOptions {
     position?: Position;
     offset?: LtOffsetOptions;
     color?: LtColorOptions;
     text?: LtTextOptions;
 }
-export interface LtOptions {
-    positionX?: number;
-    offset?: LtOffsetOptions;
-    color?: LtColorOptions;
-    text?: LtTextOptions;
+interface Position {
+    x?: number;
+    y?: number;
+    placement?: Placement;
 }
+type Placement = "top-left" | "bottom-left" | "center" | "top-right" | "bottom-right" | "custom";
 interface LtOffsetOptions {
     y?: number;
     x?: number;
@@ -54,7 +53,6 @@ export declare abstract class LowerThird extends Component {
     private setOffset;
     private setPosition;
     private setText;
-    px(value: number): number;
     offsetX(): number;
     offsetY(): number;
     strTrimAndEllipsis(str: string, maxLength: number): string;

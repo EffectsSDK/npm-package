@@ -1,44 +1,52 @@
-import { EffectProcessor } from "./effect_processor";
-import { Component } from "./components/component";
+import { FrameFormat } from "./renderer/renderer";
+import { type ColorFilterConfig } from "./effects/color-filter/colorFilterEffect";
+import { type LowLightConfig } from "./effects/low-light/lowLightEffect";
+import { EffectProcessor } from "./effects/effect_processor";
 import { OverlayScreen, OverlayScreenOptions } from "./components/overlay-screen/overlayScreen";
 import { WaterMark, WatermarkOptions } from "./components/waterMark/waterMark";
-import { StikerOptions, Stikers } from "./components/stickers/stickers";
+import { StickerOptions, Stickers } from "./components/stickers/stickers";
 import { LtOptions } from "./components/lower-third/lowerThird";
 import { LtLeftTextbox } from "./components/lower-third/collection/leftTextbox";
 import { LtHorizontalMirror } from "./components/lower-third/collection/horizontalMirror";
 import { LtSlideBold } from "./components/lower-third/collection/slideBold";
 import { LtDoubleSlideRect } from "./components/lower-third/collection/doubleSlideRect";
 import { LtTwoSlideRects } from "./components/lower-third/collection/twoSideRects/twoSlideRects";
+import { Recorder } from "./recorder";
 type ResizeSettings = {
     width: number;
     height: number;
 };
 export declare class tsvb {
     onReady?: () => void;
+    onFrame?: () => void;
     private streamProcessor;
     private effectProcessor;
     private custom_inference;
     private onnx_inference;
+    private outputFrameFormat;
+    private colorFilterEffect;
     private virtualBackgroundEffect;
     private smartZoomEffect;
     private colorCorrectorEffect;
-    components: {
-        [key: string]: Component;
-    };
+    private lowLightEffect;
+    components: any;
+    recorder: Recorder;
     customer_id: string;
     static WIDTH: number;
     static HEIGHT: number;
     static OUTPUT_WIDTH: number;
     static OUTPUT_HEIGHT: number;
     static DEBUG_MODE: boolean;
-    static enableDebugMode(): void;
-    static disableDebugMode(): void;
     static log(message: any): void;
     static authRequestFunction?: (url: string, payload: Object) => Promise<string>;
     onAuthRequest(func: (url: string, payload: Object) => Promise<string>): void;
+    enableDebugMode(): void;
+    disableDebugMode(): void;
     constructor(customer_id: string, inference?: any);
+    private onFrameDraw;
     config(config: any): void;
     private init;
+    private initRecorder;
     getCustomerId(): string;
     useStream(stream: MediaStream, resize?: ResizeSettings): void;
     setSegmentationPreset(preset: string): Promise<boolean>;
@@ -73,9 +81,16 @@ export declare class tsvb {
     disableSmartZoom(): boolean;
     enableColorCorrector(): boolean;
     disableColorCorrector(): boolean;
+    enableColorFilter(): boolean;
+    disableColorFilter(): boolean;
+    setColorFilterConfig(config: Partial<ColorFilterConfig>): boolean;
     setFilterPart(value: number): boolean;
     setColorCorrectorPeriod(value: number): boolean;
     setColorCorrectorPower(value: number): boolean;
+    enableLowLightEffect(): boolean;
+    disableLowLightEffect(): boolean;
+    setLowLightEffectConfig(config: Partial<LowLightConfig>): boolean;
+    setLowLightEffectPower(power: number): boolean;
     clear(): boolean;
     run(): boolean;
     stop(): boolean;
@@ -97,9 +112,11 @@ export declare class tsvb {
         lowerthird_3: typeof LtSlideBold;
         lowerthird_4: typeof LtDoubleSlideRect;
         lowerthird_5: typeof LtTwoSlideRects;
-        stickers: typeof Stikers;
+        stickers: typeof Stickers;
     }[K];
     setOutputResolution(size: Partial<ResizeSettings>): void;
+    onColorFilterSuccess(f: Function): void;
+    setOutputFrameFormat(format: FrameFormat): void;
 }
 declare const componentsMap: {
     overlay_screen: typeof OverlayScreen;
@@ -109,7 +126,7 @@ declare const componentsMap: {
     lowerthird_3: typeof LtSlideBold;
     lowerthird_4: typeof LtDoubleSlideRect;
     lowerthird_5: typeof LtTwoSlideRects;
-    stickers: typeof Stikers;
+    stickers: typeof Stickers;
 };
 interface OptionsMap {
     overlay_screen: OverlayScreenOptions;
@@ -119,7 +136,7 @@ interface OptionsMap {
     lowerthird_3: LtOptions;
     lowerthird_4: LtOptions;
     lowerthird_5: LtOptions;
-    stickers: StikerOptions;
+    stickers: StickerOptions;
 }
 type ComponentsMap = typeof componentsMap;
 type Keys = keyof ComponentsMap;
@@ -129,6 +146,6 @@ type SingleKey<K> = [K] extends (K extends Keys ? [K] : never) ? K : never;
 type ClassType<A extends Keys> = Extract<Tuples<Keys>, [A, any]>[1];
 interface ComponentArguments<K extends Keys> {
     component: SingleKey<K>;
-    options: K extends OptionsKeys ? OptionsMap[K] : never;
+    options: K extends OptionsKeys ? Partial<OptionsMap[K]> : never;
 }
 export {};

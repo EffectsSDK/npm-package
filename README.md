@@ -37,12 +37,13 @@ import { tsvb } from 'effects-sdk';
 
 const sdk = new tsvb('{CUSTOMER_ID}');
 
+//versions of wasm files should be matched with SDK version
  sdk.config({
           wasmPaths: { 
-                   'ort-wasm.wasm': 'https://effectssdk.com/sdk/dist/ort-wasm.wasm',
-                   'ort-wasm-simd.wasm': 'https://effectssdk.com/sdk/dist/ort-wasm-simd.wasm',
-                   'ort-wasm-threaded.wasm': 'https://effectssdk.com/sdk/dist/ort-wasm-threaded.wasm',
-                   'ort-wasm-simd-threaded.wasm': 'https://effectssdk.com/sdk/dist/ort-wasm-simd-threaded.wasm'
+                   'ort-wasm.wasm': 'https://effectssdk.ai/sdk/web/2.6.8/ort-wasm.wasm',
+                   'ort-wasm-simd.wasm': 'https://effectssdk.ai/sdk/web/2.6.8/ort-wasm-simd.wasm',
+                   'ort-wasm-threaded.wasm': 'https://effectssdk.ai/sdk/web/2.6.8/ort-wasm-threaded.wasm',
+                   'ort-wasm-simd-threaded.wasm': 'https://effectssdk.ai/sdk/web/2.6.8/ort-wasm-simd-threaded.wasm'
                }
         });
 
@@ -50,14 +51,16 @@ const sdk = new tsvb('{CUSTOMER_ID}');
 
 ## Documentation
 - [API Reference](https://effectssdk.com/sdk/web/docs/classes/tsvb.html)
-- [Feature Usage](docs/Features-Usage-Examples.md)
+- [Feature Usage](https://github.com/EffectsSDK/web-integration-sample/blob/main/docs/Features-Usage-Examples.md)
 
 ## Demo
 [Live Demo](https://effectssdk.com/sdk/demo)
 
 For the best **quality** - disable **Frame Skipping** and use **Quality** segmentation preset
 
-For the best **performance** – enable **Frame Skipping** and use **Speed** segmentation preset
+For the best **performance** – enable **Frame Skipping** and use **Lightning** segmentation preset
+
+Most common usage - disabled **Frame Skipping** and use **Balanced** segmentation preset
 
 ## Obtaining Effects SDK Customer ID
 Effects SDK Customer ID is required to get SDK working.
@@ -67,10 +70,10 @@ To receive a new trial Customer ID please fill in the contact form on [effectssd
 ## Technical Details
 
 - CUSTOMER_ID should be provided to the SDK constructor.
-- SDK has 3 speed/quality presets (different segmentationn models).
+- SDK has 4 speed/quality presets (different segmentationn models).
 - To improve output FPS SDK has ability to skip the frames.
-- [Self Hosted Assets](docs/Self-Hosted-Assets.md)
-- [License Server for On-Premises Solutions](docs/License-Server-for-On-Premises-Solutions.md)
+- [Self Hosted Assets](https://github.com/EffectsSDK/web-integration-sample/blob/main/docs/Self-Hosted-Assets.md)
+- [License Server for On-Premises Solutions](https://github.com/EffectsSDK/web-integration-sample/blob/main/docs/License-Server-for-On-Premises-Solutions.md)
 
 ## Features
 
@@ -83,6 +86,6 @@ To receive a new trial Customer ID please fill in the contact form on [effectssd
 - Layouts - **implemented**
 - One basic Lower-Third - **implemented**
 - Overlays - **implemented**
-- New Lower-Thirds (5) - **in progress**
-- Color filters - **in progress**
-- Low-light mode - **in progress**
+- New Lower-Thirds (5) - **implemented**
+- Color filters - **implemented**
+- Low-light Correction - **implemented**

@@ -9,14 +9,18 @@ interface PromiseContainer {
 }
 export interface OverlayScreenOptions {
     url?: string;
+    promise?: PromiseContainer;
 }
 export declare class OverlayScreen extends Component {
+    options: OverlayScreenOptions;
     private defaultOverlaySprite;
     private loadedOverlaySprite;
     private resource;
     private isVideo;
     private currentURL;
+    private processedURL;
     constructor(options?: OverlayScreenOptions);
+    render(): void;
     show(): void;
     hide(): void;
     private initOverlayFromUrl;

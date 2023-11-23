@@ -9,8 +9,8 @@ export declare abstract class Component {
     private beforeShowFunction;
     private beforeHideFunction;
     private afterHideFunction;
-    constructor();
-    setOptions(options: Options): void;
+    constructor(options?: Options);
+    setOptions(options?: Options): void;
     show(): void;
     hide(): void;
     onBeforeShow(f: Function): void;
@@ -20,5 +20,8 @@ export declare abstract class Component {
     isVisible(): boolean;
     getOptions(): Options;
     destroy(): void;
+    px(value: number): number;
+    render(): void;
 }
+export declare const componentsProxyHandler: ProxyHandler<any>;
 export {};

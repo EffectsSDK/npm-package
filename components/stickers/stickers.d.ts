@@ -1,44 +1,45 @@
 import { Component } from "@/components/component";
-import { Position } from "controllers/lib";
-export interface StikerOptions {
-    url?: string;
-    capacity?: number;
-    ratio?: number;
-    position?: Position;
+export interface StickerOptions {
+    capacity: number;
+    ratio: number;
+    position: Position;
+    duration: number;
+    animationSpeed: number;
+    size: number;
     id?: string;
-    sticker?: AppendStiker;
-    duration?: number;
-    animationSpeed?: number;
-    size?: number;
+    sticker?: AppendSticker;
 }
-interface AppendStiker {
+interface Position {
+    x: number;
+    y: number;
+    placement?: Placement;
+}
+type Placement = "top-left" | "bottom-left" | "center" | "top-right" | "bottom-right" | "custom";
+interface AppendSticker {
     url: string;
     promise: any;
     silenceMode?: boolean;
 }
-export declare class Stikers extends Component {
+export declare class Stickers extends Component {
+    options: StickerOptions;
     private spriteStore;
     private activeID;
-    private activeStiker;
-    private capacity;
-    private position;
-    private size;
+    private activeSticker;
     private timerId;
-    private duration;
     private ticker;
-    private animationSpeed;
     private loadSuccesssFunc;
     private loadErrorFunc;
-    constructor(options: StikerOptions);
+    constructor(options?: Partial<StickerOptions>);
     show(): void;
     hide(): void;
     onLoadSucccess(f: Function): void;
     onLoadError(f: Function): void;
-    setOptions(options: Partial<StikerOptions>): Promise<void>;
-    private loadStiker;
-    private animateStiker;
+    setOptions(options: Partial<StickerOptions>): Promise<void>;
+    private selectSticker;
+    private loadSticker;
+    private animateSticker;
     private updateSpritePosition;
-    private addStiker;
+    private addSticker;
     private calcPosition;
 }
 export {};

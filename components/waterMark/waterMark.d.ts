@@ -9,6 +9,8 @@ interface Position {
     y: number;
 }
 export declare class WaterMark extends Component {
+    options: WatermarkOptions;
     constructor(options?: WatermarkOptions);
+    render(): void;
 }
 export {};
