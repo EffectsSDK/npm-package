@@ -27,13 +27,13 @@ export declare class Stickers extends Component {
     private activeSticker;
     private timerId;
     private ticker;
-    private loadSuccesssFunc;
-    private loadErrorFunc;
+    private loadSuccesssFunc?;
+    private loadErrorFunc?;
     constructor(options?: Partial<StickerOptions>);
     show(): void;
     hide(): void;
-    onLoadSucccess(f: Function): void;
-    onLoadError(f: Function): void;
+    onLoadSucccess(f?: Function): void;
+    onLoadError(f?: Function): void;
     setOptions(options: Partial<StickerOptions>): Promise<void>;
     private selectSticker;
     private loadSticker;

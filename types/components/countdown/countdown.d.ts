@@ -7,6 +7,7 @@ export declare class CountdownComponent extends Component {
     private currentCount;
     private text;
     private interval;
+    private showRejecter;
     constructor(options?: CountdownOptions);
     render(): void;
     setOptions(options?: CountdownOptions): void;
