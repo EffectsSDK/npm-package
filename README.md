@@ -40,10 +40,10 @@ const sdk = new tsvb('{CUSTOMER_ID}');
 //versions of wasm files should be matched with SDK version
  sdk.config({
           wasmPaths: { 
-                   'ort-wasm.wasm': 'https://effectssdk.ai/sdk/web/2.6.8/ort-wasm.wasm',
-                   'ort-wasm-simd.wasm': 'https://effectssdk.ai/sdk/web/2.6.8/ort-wasm-simd.wasm',
-                   'ort-wasm-threaded.wasm': 'https://effectssdk.ai/sdk/web/2.6.8/ort-wasm-threaded.wasm',
-                   'ort-wasm-simd-threaded.wasm': 'https://effectssdk.ai/sdk/web/2.6.8/ort-wasm-simd-threaded.wasm'
+                   'ort-wasm.wasm': 'https://effectssdk.ai/sdk/web/2.8.5/ort-wasm.wasm',
+                   'ort-wasm-simd.wasm': 'https://effectssdk.ai/sdk/web/2.8.5/ort-wasm-simd.wasm',
+                   'ort-wasm-threaded.wasm': 'https://effectssdk.ai/sdk/web/2.8.5/ort-wasm-threaded.wasm',
+                   'ort-wasm-simd-threaded.wasm': 'https://effectssdk.ai/sdk/web/2.8.5/ort-wasm-simd-threaded.wasm'
                }
         });
 

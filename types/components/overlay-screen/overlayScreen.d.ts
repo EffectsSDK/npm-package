@@ -1,4 +1,4 @@
-import { Component } from "@/components/component";
+import { Component } from "../component";
 interface Options {
     url: string;
     promise?: PromiseContainer;

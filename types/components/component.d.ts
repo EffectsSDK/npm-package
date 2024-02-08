@@ -1,10 +1,24 @@
-import { Container } from "pixi.js";
 type Options = {
     [key: string]: any;
 };
+
+export interface ComponentPosition {
+    x: number;
+    y: number;
+    placement: ComponentPlacement;
+  }
+  
+export type ComponentPlacement =
+    | "top-left"
+    | "bottom-left"
+    | "center"
+    | "top-right"
+    | "bottom-right"
+    | "custom";
+
+    
 export declare abstract class Component {
-    container: Container;
-    options: Options;
+    protected options: Options;
     private afterShowFunction;
     private beforeShowFunction;
     private beforeHideFunction;

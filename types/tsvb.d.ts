@@ -1,9 +1,10 @@
 import { FrameFormat } from "./renderer/renderer";
 import { type ColorFilterConfig } from "./effects/color-filter/colorFilterEffect";
+import { BackgroundSource, LayoutMode } from "./effects/virtual-background/virtual_background_effect";
 import { type LowLightConfig } from "./effects/low-light/lowLightEffect";
 import { EffectProcessor } from "./effects/effect_processor";
 import { OverlayScreen, OverlayScreenOptions } from "./components/overlay-screen/overlayScreen";
-import { WaterMark, WatermarkOptions } from "./components/waterMark/waterMark";
+import { Watermark, WatermarkOptions } from "./components/watermark/watermark";
 import { StickerOptions, Stickers } from "./components/stickers/stickers";
 import { LtOptions } from "./components/lower-third/lowerThird";
 import { LtLeftTextbox } from "./components/lower-third/collection/leftTextbox";
@@ -38,6 +39,8 @@ export declare class tsvb {
     recorder: IRecorder;
     customer_id: string;
     constructor(customer_id: string, inference?: any);
+    cache(clear?: boolean): Promise<void>;
+    preload(): Promise<void>;
     config(config: any): void;
     private init;
     getCustomerId(): string;
@@ -50,6 +53,8 @@ export declare class tsvb {
     setFpsLimit(limit: number): boolean;
     showFps(): boolean;
     hideFps(): boolean;
+    freeze(): boolean;
+    unfreeze(): boolean;
     enableBeautification(): boolean;
     disableBeautification(): boolean;
     setBoundaryMode(mode: string): boolean;
@@ -58,11 +63,12 @@ export declare class tsvb {
     setBeautificationLevel(level: number): boolean;
     setBlur(power: number): boolean;
     clearBlur(): boolean;
-    setBackground(url: string | MediaStream | MediaStreamTrack | HTMLVideoElement): boolean;
+    setBackground(url: BackgroundSource): boolean;
     clearBackground(): boolean;
     enableFrameSkipping(): boolean;
     disableFrameSkipping(): boolean;
     setLayout(mode: string): boolean;
+    setLayoutMode(mode: LayoutMode): boolean;
     setCustomLayout(persent: {
         xOffset?: number;
         yOffset?: number;
@@ -99,7 +105,7 @@ export declare class tsvb {
     addComponent<K extends Keys>(c: ClassType<K>, id: string): void;
     getComponentConstructor<K extends Keys>(key: K): {
         overlay_screen: typeof OverlayScreen;
-        watermark: typeof WaterMark;
+        watermark: typeof Watermark;
         lowerthird_1: typeof LtLeftTextbox;
         lowerthird_2: typeof LtHorizontalMirror;
         lowerthird_3: typeof LtSlideBold;
@@ -119,7 +125,7 @@ export declare class tsvb {
 }
 declare const componentsMap: {
     overlay_screen: typeof OverlayScreen;
-    watermark: typeof WaterMark;
+    watermark: typeof Watermark;
     lowerthird_1: typeof LtLeftTextbox;
     lowerthird_2: typeof LtHorizontalMirror;
     lowerthird_3: typeof LtSlideBold;

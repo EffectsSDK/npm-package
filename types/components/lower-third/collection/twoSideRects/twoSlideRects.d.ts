@@ -1,4 +1,4 @@
-import { LowerThird, LtOptions } from "@/components/lower-third/lowerThird";
+import { LowerThird, LtOptions } from "../../lowerThird";
 export declare class LtTwoSlideRects extends LowerThird {
     private titleBox;
     private subtitleBox;

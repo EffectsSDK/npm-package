@@ -1,20 +1,14 @@
-import { Component } from "@/components/component";
+import { ComponentPosition, Component } from "../component";
 export interface StickerOptions {
     capacity: number;
     ratio: number;
-    position: Position;
+    position: ComponentPosition;
     duration: number;
     animationSpeed: number;
     size: number;
     id?: string;
     sticker?: AppendSticker;
 }
-interface Position {
-    x: number;
-    y: number;
-    placement?: Placement;
-}
-type Placement = "top-left" | "bottom-left" | "center" | "top-right" | "bottom-right" | "custom";
 interface AppendSticker {
     url: string;
     promise: any;

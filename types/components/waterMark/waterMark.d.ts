@@ -1,16 +1,17 @@
-import { Component } from "@/components/component";
+import { ComponentPosition, Component } from "../component";
 export interface WatermarkOptions {
-    url?: string;
-    ratio?: number;
-    position?: Position;
+    url: string;
+    position: ComponentPosition;
+    size: number;
 }
-interface Position {
-    x: number;
-    y: number;
-}
-export declare class WaterMark extends Component {
-    options: WatermarkOptions;
-    constructor(options?: WatermarkOptions);
+export declare class Watermark extends Component {
+    protected options: WatermarkOptions;
+    private sprite;
+    constructor(options: Partial<WatermarkOptions>);
+    setOptions(options?: WatermarkOptions): void;
+    setURL(url: string): Promise<void>;
+    setSize(size: number): void;
+    setPosition(position: ComponentPosition): void;
+    clear(): void;
     render(): void;
 }
-export {};
