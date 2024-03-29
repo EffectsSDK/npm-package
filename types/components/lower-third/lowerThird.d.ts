@@ -1,5 +1,6 @@
 import { Graphics, Text, Ticker, TickerCallback } from "pixi.js";
 import { Component } from "../component";
+import { Options as sdkOptions } from '@/Options';
 export interface LtOptions {
     position?: Position;
     offset?: LtOffsetOptions;
@@ -42,7 +43,7 @@ export declare abstract class LowerThird extends Component {
     isShowing: boolean;
     isHiding: boolean;
     options: Required<LtOptions>;
-    constructor(options?: LtOptions);
+    constructor(sdkOptions: sdkOptions, options?: LtOptions);
     render(): void;
     setOptions(options?: LtOptions, render?: boolean): void;
     showLowerThird(): void;

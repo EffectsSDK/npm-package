@@ -1,5 +1,6 @@
 import { SmoothNumber } from "@/utils/functions/smoothNumber";
 import { Container } from "pixi.js";
+import { Options as sdkOptions } from '@/Options';
 interface AnimatedBoxOptions {
     text?: string;
     colorText?: number;
@@ -25,7 +26,8 @@ export declare class AnimatedBox {
     private hiddenMask;
     private rect;
     private hiddenContainer;
-    constructor(options: AnimatedBoxOptions);
+    private sdkOptions;
+    constructor(sdkOptions: sdkOptions, options: AnimatedBoxOptions);
     textInAnimateFunction(): void;
     textOutAnimateFunction(): void;
     textResetFunction(): void;

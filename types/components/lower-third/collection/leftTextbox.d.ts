@@ -1,4 +1,5 @@
-import { LowerThird, LtOptions } from "../lowerThird";
+import { LowerThird, LtOptions } from "@/components/lower-third/lowerThird";
+import { Options as sdkOptions } from '@/Options';
 export declare class LtLeftTextbox extends LowerThird {
     private rectBack;
     private rectFront;
@@ -8,7 +9,7 @@ export declare class LtLeftTextbox extends LowerThird {
     private ltWidth;
     private ltHeight;
     private smoothPower;
-    constructor(options: LtOptions);
+    constructor(sdkOptions: sdkOptions, options: LtOptions);
     render(): void;
     private createText;
     private addRectangles;

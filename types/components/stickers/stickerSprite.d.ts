@@ -1,5 +1,6 @@
 import Player from "apng-js/types/library/player";
 import { Sprite } from "pixi.js";
+import { Options as sdkOptions } from '@/Options';
 interface StickerSpriteOptions {
     sprite: Sprite;
     id: string;
@@ -20,7 +21,8 @@ export declare class StickerSprite {
     width: number;
     aminationPhase: "showing" | "static" | "hiding";
     private sourceRatio;
-    constructor(options: StickerSpriteOptions);
+    private sdkOptions;
+    constructor(sdkOptions: sdkOptions, options: StickerSpriteOptions);
     private isShowing;
     private isStatic;
     isHidingStop(): boolean;

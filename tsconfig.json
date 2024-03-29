@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+      "moduleResolution": "node",
+      "paths": {
+        "@/*": ["./types/*"]
+      } 
+    },
+    "include": ["types"]
+}

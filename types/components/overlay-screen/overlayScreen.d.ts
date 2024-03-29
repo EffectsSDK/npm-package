@@ -1,4 +1,5 @@
-import { Component } from "../component";
+import { Component } from "@/components/component";
+import { Options as sdkOptions } from '@/Options';
 interface Options {
     url: string;
     promise?: PromiseContainer;
@@ -19,7 +20,7 @@ export declare class OverlayScreen extends Component {
     private isVideo;
     private currentURL;
     private processedURL;
-    constructor(options?: OverlayScreenOptions);
+    constructor(sdkOptions: sdkOptions, options?: OverlayScreenOptions);
     render(): void;
     show(): void;
     hide(): void;

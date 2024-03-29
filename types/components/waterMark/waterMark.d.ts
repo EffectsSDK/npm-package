@@ -1,4 +1,5 @@
-import { ComponentPosition, Component } from "../component";
+import { Component } from "../component";
+import { Options as sdkOptions } from '@/Options';
 export interface WatermarkOptions {
     url: string;
     position: ComponentPosition;
@@ -7,7 +8,7 @@ export interface WatermarkOptions {
 export declare class Watermark extends Component {
     protected options: WatermarkOptions;
     private sprite;
-    constructor(options: Partial<WatermarkOptions>);
+    constructor(sdkOptions: sdkOptions, options: Partial<WatermarkOptions>);
     setOptions(options?: WatermarkOptions): void;
     setURL(url: string): Promise<void>;
     setSize(size: number): void;

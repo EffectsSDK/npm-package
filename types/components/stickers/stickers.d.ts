@@ -1,4 +1,5 @@
-import { ComponentPosition, Component } from "../component";
+import { Component } from "@/components/component";
+import { Options as sdkOptions } from '@/Options';
 export interface StickerOptions {
     capacity: number;
     ratio: number;
@@ -23,7 +24,7 @@ export declare class Stickers extends Component {
     private ticker;
     private loadSuccesssFunc?;
     private loadErrorFunc?;
-    constructor(options?: Partial<StickerOptions>);
+    constructor(sdkOptions: sdkOptions, options?: Partial<StickerOptions>);
     show(): void;
     hide(): void;
     onLoadSucccess(f?: Function): void;

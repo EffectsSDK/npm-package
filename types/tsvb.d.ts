@@ -14,16 +14,12 @@ import { LtDoubleSlideRect } from "./components/lower-third/collection/doubleSli
 import { LtTwoSlideRects } from "./components/lower-third/collection/twoSideRects/twoSlideRects";
 import { ErrorObject } from "./utils/errorBus";
 import { IRecorder } from "./entities/recorder";
+import { Options as sdkOptions } from '@/Options';
 type ResizeSettings = {
     width: number;
     height: number;
 };
 export declare class tsvb {
-    static WIDTH: number;
-    static HEIGHT: number;
-    static OUTPUT_WIDTH: number;
-    static OUTPUT_HEIGHT: number;
-    static IS_LANDSCAPE: boolean;
     private callbackStore;
     private streamProcessor;
     private effectProcessor;
@@ -31,14 +27,17 @@ export declare class tsvb {
     private onnx_inference;
     private outputFrameFormat;
     private colorFilterEffect;
+    private customResolutionEffect;
     private virtualBackgroundEffect;
     private smartZoomEffect;
     private colorCorrectorEffect;
     private lowLightEffect;
     components: any;
     recorder: IRecorder;
+    sdkOptions: sdkOptions;
     customer_id: string;
     constructor(customer_id: string, inference?: any);
+    private onOptionsUpdate;
     cache(clear?: boolean): Promise<void>;
     preload(): Promise<void>;
     config(config: any): void;
@@ -113,7 +112,8 @@ export declare class tsvb {
         lowerthird_5: typeof LtTwoSlideRects;
         stickers: typeof Stickers;
     }[K];
-    setOutputResolution(size: Partial<ResizeSettings>): void;
+    setOutputResolution(size: ResizeSettings): void;
+    clearOutputResolution(): void;
     setOutputFrameFormat(format: FrameFormat): void;
     set onReady(f: Function);
     onError(f: (e: ErrorObject) => void): void;
