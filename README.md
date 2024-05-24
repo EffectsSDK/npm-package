@@ -40,8 +40,8 @@ const sdk = new tsvb('{CUSTOMER_ID}');
 //versions of wasm files should be matched with SDK version
  sdk.config({
           wasmPaths: { 
-                   'ort-wasm.wasm': 'https://effectssdk.ai/sdk/web/3.1.5/ort-wasm.wasm',
-                   'ort-wasm-simd.wasm': 'https://effectssdk.ai/sdk/web/3.1.5/ort-wasm-simd.wasm'
+                   'ort-wasm.wasm': 'https://effectssdk.ai/sdk/web/3.2.3/ort-wasm.wasm',
+                   'ort-wasm-simd.wasm': 'https://effectssdk.ai/sdk/web/3.2.3/ort-wasm-simd.wasm'
                }
         });
 
@@ -92,4 +92,4 @@ To receive a new trial Customer ID please fill in the contact form on [effectssd
 - New Lower-Thirds (5) - **implemented**
 - Color filters - **implemented**
 - Low-light Correction - **implemented**
-- Video clarity/Sharpness - **in progress**
+- Video clarity/Sharpness - **implemented**
