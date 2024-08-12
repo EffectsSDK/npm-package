@@ -1,6 +1,6 @@
 import { Graphics, Text, Ticker, TickerCallback } from "pixi.js";
+import { Options as sdkOptions } from "@/Options";
 import { Component } from "../component";
-import { Options as sdkOptions } from '@/Options';
 export interface LtOptions {
     position?: Position;
     offset?: LtOffsetOptions;

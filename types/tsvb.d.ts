@@ -2,6 +2,7 @@ import { FrameFormat } from "./renderer/renderer";
 import { type ColorFilterConfig } from "./effects/color-filter/colorFilterEffect";
 import { BackgroundSource, LayoutMode } from "./effects/virtual-background/virtual_background_effect";
 import { type LowLightConfig } from "./effects/low-light/lowLightEffect";
+import { FaceCombiner } from "./effects/smart-zoom/faceCombiner";
 import { EffectProcessor } from "./effects/effect_processor";
 import { OverlayScreen, OverlayScreenOptions } from "./components/overlay-screen/overlayScreen";
 import { Watermark, WatermarkOptions } from "./components/watermark/watermark";
@@ -14,12 +15,14 @@ import { LtDoubleSlideRect } from "./components/lower-third/collection/doubleSli
 import { LtTwoSlideRects } from "./components/lower-third/collection/twoSideRects/twoSlideRects";
 import { ErrorObject } from "./utils/errorBus";
 import { IRecorder } from "./entities/recorder";
-import { Options as sdkOptions } from '@/Options';
+import { Options as sdkOptions } from "@/Options";
+import { type SharpnessConfig } from "./effects/sharpness/sharpnessEffect";
 type ResizeSettings = {
     width: number;
     height: number;
 };
 export declare class tsvb {
+    #private;
     private callbackStore;
     private streamProcessor;
     private effectProcessor;
@@ -32,6 +35,10 @@ export declare class tsvb {
     private smartZoomEffect;
     private colorCorrectorEffect;
     private lowLightEffect;
+    private sharpnessEffect;
+    private filterDrawEffect;
+    private mirroringEffect;
+    private finalDrawEffect;
     components: any;
     recorder: IRecorder;
     sdkOptions: sdkOptions;
@@ -75,6 +82,7 @@ export declare class tsvb {
     }): boolean;
     setFaceArea(value: number): boolean;
     setFaceDetectorAccuracy(value: number): boolean;
+    getDetectedFaces(): FaceCombiner[];
     setSmartZoomSmoothing(steps: number): boolean;
     setSmartZoomSensitivity(value: number): boolean;
     setSmartZoomPerod(value: number): boolean;
@@ -84,6 +92,8 @@ export declare class tsvb {
     disableSmartZoom(): boolean;
     enableColorCorrector(): boolean;
     disableColorCorrector(): boolean;
+    enableMirroring(): boolean;
+    disableMirroring(): boolean;
     enableColorFilter(): boolean;
     disableColorFilter(): boolean;
     setColorFilterConfig(config: Partial<ColorFilterConfig>): boolean;
@@ -94,6 +104,9 @@ export declare class tsvb {
     disableLowLightEffect(): boolean;
     setLowLightEffectConfig(config: Partial<LowLightConfig>): boolean;
     setLowLightEffectPower(value: number): boolean;
+    enableSharpnessEffect(): boolean;
+    disableSharpnessEffect(): boolean;
+    setSharpnessEffectConfig(config: Partial<SharpnessConfig>): boolean;
     clear(): boolean;
     run(): boolean;
     stop(): boolean;
@@ -151,6 +164,6 @@ type SingleKey<K> = [K] extends (K extends Keys ? [K] : never) ? K : never;
 type ClassType<A extends Keys> = Extract<Tuples<Keys>, [A, any]>[1];
 interface ComponentArguments<K extends Keys> {
     component: SingleKey<K>;
-    options: K extends OptionsKeys ? Partial<OptionsMap[K]> : never;
+    options?: K extends OptionsKeys ? Partial<OptionsMap[K]> : never;
 }
 export {};

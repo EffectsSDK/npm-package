@@ -22,7 +22,7 @@ Explore our Chrome Extension, built upon this Web SDK. You can effortlessly test
 
 - Obtaining Effects SDK Customer ID
 - SSL to get MediaStream from browser
-- Support of WebGL 1.0
+- Support of WebGL 2.0
 
 ## Instalation
 
@@ -40,20 +40,20 @@ const sdk = new tsvb('{CUSTOMER_ID}');
 //versions of wasm files should be matched with SDK version
  sdk.config({
           wasmPaths: { 
-                   'ort-wasm.wasm': 'https://effectssdk.ai/sdk/web/3.2.3/ort-wasm.wasm',
-                   'ort-wasm-simd.wasm': 'https://effectssdk.ai/sdk/web/3.2.3/ort-wasm-simd.wasm'
+                   'ort-wasm.wasm': 'https://effectssdk.ai/sdk/web/3.3.0/ort-wasm.wasm',
+                   'ort-wasm-simd.wasm': 'https://effectssdk.ai/sdk/web/3.3.0/ort-wasm-simd.wasm'
                }
         });
 
 ```
 
 ## Documentation
-- [API Reference](https://effectssdk.com/sdk/web/docs/classes/tsvb.html)
+- [API Reference](https://effectssdk.ai/sdk/web/docs/classes/tsvb.html)
 - [Feature Usage](https://github.com/EffectsSDK/web-integration-sample/blob/main/docs/Features-Usage-Examples.md)
 - [Best Practices](https://github.com/EffectsSDK/web-integration-sample/blob/main/docs/Best-Practices.md)
 
 ## Demo
-[Live Demo](https://effectssdk.com/sdk/demo)
+[Live Demo](https://effectssdk.ai/sdk/demo)
 
 ## Chrome extension for end customers
 [AI Webcam Visual Effects: Google Meet & Other](https://chromewebstore.google.com/detail/ai-webcam-visual-effects/iedbphhbpflhgpihkcceocomcdnemcbj)
@@ -68,7 +68,7 @@ Most common usage - disabled **Frame Skipping** and use **Balanced** segmentatio
 ## Obtaining Effects SDK Customer ID
 Effects SDK Customer ID is required to get SDK working.
 
-To receive a new trial Customer ID please fill in the contact form on [effectssdk.com](https://effectssdk.com/request-trial) website.
+To receive a new trial Customer ID please fill in the contact form on [effectssdk.ai](https://effectssdk.ai/request-trial) website.
 
 ## Technical Details
 

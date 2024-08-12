@@ -1,5 +1,5 @@
 import { Component } from "@/components/component";
-import { Options as sdkOptions } from '@/Options';
+import { Options as sdkOptions } from "@/Options";
 export interface StickerOptions {
     capacity: number;
     ratio: number;

@@ -1,9 +1,5 @@
 import { Component } from "@/components/component";
-import { Options as sdkOptions } from '@/Options';
-interface Options {
-    url: string;
-    promise?: PromiseContainer;
-}
+import { Options as sdkOptions } from "@/Options";
 interface PromiseContainer {
     resolve: Function;
     reject: Function;
@@ -25,7 +21,7 @@ export declare class OverlayScreen extends Component {
     show(): void;
     hide(): void;
     private initOverlayFromUrl;
-    setOptions(o: Options): Promise<void>;
+    setOptions(o: OverlayScreenOptions): Promise<void>;
     private setOverlayImage;
     private loadImage;
     private switchVideoTexture;

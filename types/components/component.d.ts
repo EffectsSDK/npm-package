@@ -3,10 +3,6 @@ import { Options as sdkOptions } from '../Options';
 type Options = {
     [key: string]: any;
 };
-
-
-
-    
 export declare abstract class Component {
     container: Container;
     protected options: Options;
