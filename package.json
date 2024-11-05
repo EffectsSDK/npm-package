@@ -1,6 +1,6 @@
 {
   "name": "effects-sdk",
-  "version": "3.4.2",
+  "version": "3.4.3",
   "description": "Add real-time webcam effects (virtual background, background blur, touch up my appearance, auto-framing, color correction. lower-thirds) for video calls.",
   "main": "tsvb.js",
   "scripts": {

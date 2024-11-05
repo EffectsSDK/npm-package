@@ -40,8 +40,8 @@ const sdk = new tsvb('{CUSTOMER_ID}');
 //versions of wasm files should be matched with SDK version
  sdk.config({
           wasmPaths: { 
-                   'ort-wasm.wasm': 'https://effectssdk.ai/sdk/web/3.3.0/ort-wasm.wasm',
-                   'ort-wasm-simd.wasm': 'https://effectssdk.ai/sdk/web/3.3.0/ort-wasm-simd.wasm'
+                   'ort-wasm.wasm': 'https://effectssdk.ai/sdk/web/3.4.3/ort-wasm.wasm',
+                   'ort-wasm-simd.wasm': 'https://effectssdk.ai/sdk/web/3.4.3/ort-wasm-simd.wasm'
                }
         });
 
