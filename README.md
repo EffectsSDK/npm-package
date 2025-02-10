@@ -1,3 +1,6 @@
+**⚠️ Deprecation Notice**  
+NPM package was moved to main repo of [Video Effects SDK](https://github.com/EffectsSDK/video-effects-sdk-web)
+
 # Video Effects SDK - NPM Package Usage
 
 Add real-time AI video enhancement that makes video meeting experience more effective and comfortable to your application in a few hours. 
